@@ -35,9 +35,10 @@ string Stabilizer(string giveStr) {
 				trans[i] = 0;
 			}
 			else if (int(trans[i]) != 0)
-			{
-				newName += char(trans[i] + 320);
-				trans[i] = 0;
+			{if (int(trans[i]) == 32) {
+				trans[i] = ' '; newName += trans[i];}
+			 else{	newName += char(trans[i] + 320);
+				trans[i] = 0;}
 			}
 		}
 	}
@@ -47,10 +48,6 @@ string Stabilizer(string giveStr) {
 			newName += trans[i];
 			trans[i] = 0;
 		}
-	}
-	for (int i = 0; i < haw; i++)
-	{
-		cout << trans[i] << endl;
-	}
+	}	
 	return newName;
 }
